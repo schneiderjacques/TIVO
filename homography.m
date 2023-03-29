@@ -1,9 +1,4 @@
 function [H] = homography(points1, points2)
-% Cette fonction prend en entrée deux tableaux de points `points1` et `points2`
-% de taille 2x4 qui représentent les coordonnées de quatre points dans l'image 1
-% et leurs homologues dans l'image 2.
-
-% Extraire les coordonnées x et y des points 1 et 2
 x1 = points1(1,1);
 x2 = points1(1,2);
 x3 = points1(1,3);
@@ -31,5 +26,6 @@ A = [
     0 0 0 x4 y4 1 -yp4*x4 -yp4*y4 -yp4;
     ];
 h = null(A);
-H = reshape(h, [3,3])';
+H = ..
 H = H/H(3,3);
+end
