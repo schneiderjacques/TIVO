@@ -1,0 +1,28 @@
+function [P, s] = H2P(H, K)
+% Calcul de la matrice Rt
+Rt = inv(K) * H;
+
+n = norm(Rt(:,1));
+Rt = Rt / n;
+
+
+% Calcul de r1
+r1 = Rt(:,1);
+
+
+% Calcul de r2
+h1 = H(:,1);
+h2 = H(:,2);
+s = norm(h2) / norm(h1);
+r2 = h2 / s;
+
+% Calcul de r3
+r3 = cross(r1, r2);
+
+% Calcul de t
+t = Rt(:,3);
+
+% Calcul de la matrice de projection
+P = K * [r1 r2 r3 t];
+P = P / P(3,4);
+end
