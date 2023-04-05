@@ -25,7 +25,7 @@ A = [
     x4 y4 1 0 0 0 -xp4*x4 -xp4*y4 -xp4;
     0 0 0 x4 y4 1 -yp4*x4 -yp4*y4 -yp4;
     ];
-[~,~,V] = svd(A);
+    [~,~,V] = svd(A);
     h = V(:, end);
     H = reshape(h, [3, 3])';
     H = H/H(3,3);
